@@ -1,0 +1,53 @@
+/* Welcome page, scan version: press and hold the barcode on the tag to authenticate. */
+body.welcome { min-height: 100vh; }
+.stage { max-width: 760px; margin: 0 auto; padding-block: 36px 72px; display: grid; gap: 28px; justify-items: center; text-align: center; }
+.stage .lead { color: var(--muted); max-width: 44ch; }
+
+.scan-hero { display: grid; justify-items: center; width: 100%; }
+.scan-hero .tag { width: min(100%, 460px); }
+.scan-hero .tag h1 { font-size: clamp(40px, 10vw, 66px); }
+
+.scanner {
+  position: relative; display: block; width: 100%;
+  background: rgba(255,255,255,0.35); border: 2px dashed var(--tag-ink); border-radius: 6px;
+  padding: 14px; cursor: pointer; color: inherit;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.scanner .barcode { height: 76px; opacity: 0.9; }
+.scanner .cap { display: block; margin-top: 10px; text-align: center; }
+.scanner::after {
+  content: ""; position: absolute; left: 6px; right: 6px; top: 14px; height: 3px; border-radius: 2px;
+  background: var(--accent); box-shadow: 0 0 10px 2px var(--accent); opacity: 0; pointer-events: none;
+}
+.scanner.scanning { background: rgba(255,255,255,0.55); border-style: solid; }
+.scanner.scanning::after { opacity: 1; animation: laser 0.9s ease-in-out infinite alternate; }
+.scanner.done { cursor: default; border-style: solid; border-color: var(--mint-ink); }
+.scanner.done::after { opacity: 0; animation: none; }
+
+.stamp-big {
+  position: absolute; left: 50%; top: 52%; z-index: 2; pointer-events: none;
+  border: 5px solid var(--accent); color: var(--accent); background: rgba(251,251,254,0.92);
+  padding: 6px 22px; font-family: var(--font-mono); font-weight: 500; font-size: clamp(22px, 7vw, 34px); letter-spacing: 0.16em;
+  transform: translate(-50%, -50%) rotate(-9deg); opacity: 0;
+}
+.stamp-big.slam { animation: slam 0.42s cubic-bezier(.2,1.4,.4,1) forwards; }
+
+.meter { width: min(100%, 460px); display: grid; gap: 10px; }
+.track { height: 10px; border: 1.5px solid var(--fg); border-radius: 999px; background: var(--paper); overflow: hidden; }
+.fill { height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.status { min-height: 1.6em; color: var(--muted); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+.status.warn { color: var(--accent); }
+
+.found { display: grid; gap: 14px; justify-items: center; }
+.found h2 { font-size: clamp(32px, 7vw, 52px); line-height: 1; }
+.found p { color: var(--muted); max-width: 40ch; }
+.skip { color: var(--muted); font-size: 14px; }
+
+@keyframes laser { from { top: 14px; } to { top: calc(100% - 17px); } }
+@keyframes slam { 0% { opacity: 0; transform: translate(-50%, -50%) rotate(-9deg) scale(2.4); } 100% { opacity: 1; transform: translate(-50%, -50%) rotate(-9deg) scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .scanner.scanning::after { animation: none; top: 50%; }
+  .stamp-big.slam { animation: none; opacity: 1; }
+}

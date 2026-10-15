@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Certified Original</title>
+<meta name="description" content="A birthday site, made with love.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="home.html">Certified Original</a>
+  <ul>
+    <li><a class="link" href="home.html" aria-current="page">Home</a></li>
+    <li><a class="link" href="report.html">Report</a></li>
+    <li><a class="link" href="care.html">Care</a></li>
+    <li><a class="link" href="memories.html">Memories</a></li>
+    <li><a class="link" href="gift.html">Gift</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="t">
+    <div class="string" aria-hidden="true"></div>
+    <div class="tag">
+      <div class="top mono"><span>Tag no. 0001</span><span>One of one</span></div>
+      <h1 id="t">Happy birthday, <em class="name">Babe</em>.</h1>
+      <dl class="specs mono">
+        <div><dt>Item</dt><dd>You</dd></div>
+        <div><dt>Era</dt><dd>Timeless</dd></div>
+        <div><dt>Size</dt><dd>One year older</dd></div>
+        <div><dt>Condition</dt><dd>Mint</dd></div>
+        <div><dt>Price</dt><dd>Priceless, not for sale</dd></div>
+      </dl>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+    <p class="hero-note">made a little website for you, enjoy.</p>
+    <span class="countdown mono" id="countdown" hidden></span>
+    <a class="cta" href="report.html">Start with the report</a>
+  </section>
+
+  <section class="together" id="together" aria-labelledby="tg" hidden>
+    <div class="head">
+      <span class="mono eyebrow" id="sinceLabel">Authenticated since</span>
+      <h2 id="tg">Together for</h2>
+    </div>
+    <div class="clock" role="timer" aria-live="off">
+      <div class="unit"><span class="num" data-u="y">0</span><span class="mono lab">Years</span></div>
+      <div class="unit"><span class="num" data-u="mo">0</span><span class="mono lab">Months</span></div>
+      <div class="unit"><span class="num" data-u="d">0</span><span class="mono lab">Days</span></div>
+      <div class="unit"><span class="num" data-u="h">0</span><span class="mono lab">Hours</span></div>
+      <div class="unit"><span class="num" data-u="mi">0</span><span class="mono lab">Minutes</span></div>
+      <div class="unit"><span class="num" data-u="s">0</span><span class="mono lab">Seconds</span></div>
+    </div>
+    <p class="clock-note" id="clockNote"></p>
+  </section>
+</main>
+
+<footer class="foot mono">Made for you, with love</footer>
+
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

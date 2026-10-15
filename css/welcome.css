@@ -1,0 +1,52 @@
+/* Welcome page: a clothing rail. Six hangers, one tag carries her name. */
+body.welcome { min-height: 100vh; }
+.stage { max-width: 760px; margin: 0 auto; padding-block: 48px 72px; display: grid; gap: 40px; justify-items: center; text-align: center; }
+.stage h1 { font-size: clamp(40px, 9vw, 72px); line-height: 1; }
+.stage h1 em { font-style: italic; color: var(--accent); }
+.stage .lead { color: var(--muted); max-width: 44ch; }
+
+.rack { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 36px; }
+.item {
+  position: relative; display: grid; justify-items: center; align-content: start; gap: 0;
+  background: none; border: 0; padding: 0 0 6px; color: var(--muted); cursor: pointer;
+  transform-origin: 50% 0; transition: transform 0.35s ease, opacity 0.35s ease;
+  animation: sway 5s ease-in-out infinite;
+}
+.item:nth-child(2n) { animation-delay: -1.7s; animation-duration: 6s; }
+.item:nth-child(3n) { animation-delay: -3.1s; animation-duration: 5.5s; }
+/* the rail itself runs through every cell */
+.item::before { content: ""; position: absolute; top: 14px; left: 0; right: 0; height: 3px; background: var(--muted); opacity: 0.55; }
+.hanger { position: relative; width: 64px; height: 44px; z-index: 1; }
+.garment {
+  width: 78%; aspect-ratio: 1 / 0.95; margin-top: -4px;
+  background: var(--c, var(--accent));
+  clip-path: polygon(30% 0, 40% 7%, 60% 7%, 70% 0, 100% 22%, 86% 40%, 76% 32%, 76% 100%, 24% 100%, 24% 32%, 14% 40%, 0 22%);
+}
+.tag-s {
+  position: absolute; left: 50%; top: 58px; width: 74%; transform: translateX(-50%) rotate(-4deg);
+  background: var(--paper); color: var(--fg); border: 1px solid var(--fg);
+  padding: 6px 6px 7px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25;
+}
+.tag-s::before { content: ""; display: block; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--fg); margin: 0 auto 4px; }
+.item:hover, .item:focus-visible { animation-play-state: paused; transform: rotate(-3deg); }
+.item.nope { animation: shake 0.45s ease; }
+.item.picked { animation: none; transform: translateY(-14px) scale(1.07); opacity: 1; filter: drop-shadow(0 12px 14px rgba(0,0,0,0.28)); z-index: 2; }
+.item.picked .tag-s { background: var(--tag); color: var(--tag-ink); border-color: var(--tag-ink); }
+.rack.done .item:not(.picked) { opacity: 0.3; pointer-events: none; animation: none; }
+
+.status { min-height: 1.6em; color: var(--accent); font-weight: 500; }
+.found { display: grid; gap: 16px; justify-items: center; }
+.found h2 { font-size: clamp(32px, 7vw, 52px); line-height: 1; }
+.found p { color: var(--muted); max-width: 40ch; }
+.skip { color: var(--muted); font-size: 14px; }
+
+@keyframes sway { 0%, 100% { transform: rotate(-1.4deg); } 50% { transform: rotate(1.4deg); } }
+@keyframes shake { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-6deg); } 40% { transform: rotate(5deg); } 60% { transform: rotate(-4deg); } 80% { transform: rotate(3deg); } }
+
+@media (min-width: 700px) {
+  .rack { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .tag-s { font-size: 10px; top: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .item, .item.nope { animation: none; transition: none; }
+}

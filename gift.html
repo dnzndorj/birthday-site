@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Gift</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="home.html">Certified Original</a>
+  <ul>
+    <li><a class="link" href="home.html">Home</a></li>
+    <li><a class="link" href="report.html">Report</a></li>
+    <li><a class="link" href="care.html">Care</a></li>
+    <li><a class="link" href="memories.html">Memories</a></li>
+    <li><a class="link" href="gift.html" aria-current="page">Gift</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <section class="gift" aria-labelledby="h">
+    <h1 id="h">One last thing.</h1>
+
+    <form class="gate" id="gate" hidden>
+      <label for="gateA" id="gateQ"></label>
+      <input id="gateA" type="text" autocomplete="off">
+      <button class="open" type="submit">Unlock</button>
+      <p class="msg" id="gateMsg" role="status"></p>
+    </form>
+
+    <button class="open" id="openBtn" type="button" aria-expanded="false" aria-controls="letter">Open your letter</button>
+
+    <div class="song" id="song" hidden>
+      <span class="mono eyebrow">Now playing, one of my most played song when I miss you</span>
+      <div id="songFrame"></div>
+    </div>
+
+    <!-- Edit the letter text below. -->
+    <div class="letter" id="letter" hidden>
+      <h2>Dear <span class="name">Babe</span>,</h2>
+      <p>Хонгор чамдаа 20 насны төрсөн өдрийн мэндийг хүргэе ээ,</p>
+      <p>Төдийгөөс өдий хүртэл намайг хайрлаж ирсэнд баярлалаа.</p>
+      <p>Том бүсгүй минь тэгээд цаашдаа сайн сайхан амьдрахын төлөө... Хайртай шүү чамдаа</p>
+      <p>Монгол хүмүүс байнадаа гээд кириллээрээ бичлээ кк</p>
+      <div class="sign from">Dnzn</div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot mono">Made for you, with love</footer>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

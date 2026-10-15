@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Certified Original</title>
+<meta name="description" content="Scan the tag to authenticate your birthday gift.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scan.css">
+</head>
+<body class="welcome">
+<main class="stage">
+  <section class="scan-hero" aria-labelledby="t">
+    <div class="string" aria-hidden="true"></div>
+    <div class="tag">
+      <div class="top mono"><span>Tag no. 0001</span><span>One of one</span></div>
+      <h1 id="t">Property of <em class="name">Babe</em></h1>
+      <dl class="specs mono">
+        <div><dt>Item</dt><dd>You</dd></div>
+        <div><dt>Status</dt><dd>Unverified</dd></div>
+      </dl>
+
+      <button class="scanner" id="scanner" type="button" aria-label="Hold to scan the tag and authenticate">
+        <div class="barcode" aria-hidden="true"></div>
+        <span class="cap mono">Press and hold to scan</span>
+      </button>
+
+      <div class="stamp-big" id="stamp" aria-hidden="true">AUTHENTIC</div>
+    </div>
+  </section>
+
+  <p class="lead" id="lead">Before you come in, this tag needs to be authenticated. Hold your finger on the barcode until it finishes.</p>
+
+  <div class="meter">
+    <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+    <p class="status" id="status" role="status" aria-live="polite">Waiting for scan</p>
+  </div>
+
+  <div class="found" id="found" hidden>
+    <h2>Verified, <span class="name">Babe</span>.</h2>
+    <p>Mint condition and one of a kind, just like I said. Come on in.</p>
+    <a class="cta" href="home.html">Enter</a>
+  </div>
+
+  <a class="skip" href="home.html">Skip the scan</a>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+<script src="js/scan.js"></script>
+</body>
+</html>
